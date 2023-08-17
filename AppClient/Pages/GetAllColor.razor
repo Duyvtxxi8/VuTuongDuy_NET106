@@ -1,0 +1,28 @@
+﻿@page "/list"
+@inherits GetAllColorBase
+@if(Colors != null){
+	<h3>List Color</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name color</th>
+				<th scope="col">Des</th>
+				<th scope="col">Status</th>
+				<th scope="col">#</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var color in Colors){
+				<tr>
+					<th scope="row">@count</th>
+					<th>@color.ColorName</th>
+					<th>@color.Description</th>
+					<th>@color.Status</th>
+					<th><a class="btn btn-danger" @onclick = "() => DeleteColor(color.Id)">Delete</a></th>
+				</tr>
+				count++;
+			}
+		</tbody>
+	</table>
+}

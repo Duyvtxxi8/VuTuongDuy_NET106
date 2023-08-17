@@ -1,0 +1,22 @@
+﻿@page "/add"
+@inherits AddColorBase
+<h3>AddColor</h3>
+<EditForm Model="Color" OnValidSubmit="HandleSubmitForm">
+	<DataAnnotationsValidator />
+	<div class="mb-3">
+		<label class="form-label">Name color</label>
+		<InputText class="form-control" @bind-Value="Color.ColorName" />
+		<ValidationMessage For="() => Color.ColorName"/>
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Mo ta</label>
+		<InputText class="form-control" @bind-Value="Color.Description" />
+		<ValidationMessage For="() => Color.Description" />
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Status</label>
+		<InputNumber class="form-control" @bind-Value="Color.Status" />
+		<ValidationMessage For="() => Color.Status" />
+	</div>
+	<button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
