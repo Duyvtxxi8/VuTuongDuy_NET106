@@ -3,7 +3,7 @@
 <h3>UploadFile</h3>
 
 <InputFile OnChange="HandleFileChange"/>
-<button @onclick="UploadFile" accept = ".txt, .png, .xls">Upload</button>
+<button @onclick="UploadFile">Upload</button>
 @if(!string.IsNullOrEmpty(uploadMessage)){
 	<p>Upload result: @uploadMessage</p>
 }

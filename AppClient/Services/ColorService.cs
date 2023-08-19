@@ -28,5 +28,10 @@ namespace AppClient.Services
         {
             return await httpClient.GetFromJsonAsync<List<Color>>("api/color/get-color");
         }
+
+        public async Task UpdateColor(Guid id)
+        {
+            var response = await httpClient.PutAsync($"api/color/edit-color/{id}", null);
+        }
     }
 }

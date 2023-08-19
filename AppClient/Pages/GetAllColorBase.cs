@@ -12,7 +12,8 @@ namespace AppClient.Pages
         [Inject]
         public IColorService ColorService { get; set; }
         public List<Color> Colors { get; set; }
-        public int count = 1;
+        public Guid editingColorId = Guid.Empty;
+
 
         protected override async Task OnInitializedAsync()
         {
@@ -22,6 +23,19 @@ namespace AppClient.Pages
         {
             await ColorService.DeleteColor(id);
             NavigationManager.NavigateTo("/list", forceLoad: true);
+        }
+        public void StartEditing(Guid id)
+        {
+            editingColorId = id;
+        }
+        public async Task SaveChanges(Guid id)
+        {
+            var color = Colors.FirstOrDefault(c => c.Id == id);
+            if (color != null)
+            {
+                await ColorService.UpdateColor(color.Id);
+                editingColorId = Guid.Empty;
+            }
         }
     }
 }

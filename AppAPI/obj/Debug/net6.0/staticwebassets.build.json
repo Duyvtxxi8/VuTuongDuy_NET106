@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cxEvFbeTBg3IRKkz7rE/1IyxDlNzWfjWm7LGfu0JrJY=",
+  "Hash": "KLzEQ+MoHmv8la748u4qTTlhDhW0ri5W4VtK938hMWA=",
   "Source": "AppAPI",
   "BasePath": "_content/AppAPI",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\anhf4.png.jpg"
+    },
+    {
+      "Identity": "D:\\NET106\\Project\\VuTuongDuy_PH24890\\AppAPI\\wwwroot\\uploads\\BanVang.PNG",
+      "SourceId": "AppAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\NET106\\Project\\VuTuongDuy_PH24890\\AppAPI\\wwwroot\\",
+      "BasePath": "_content/AppAPI",
+      "RelativePath": "uploads/BanVang.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\BanVang.PNG"
     },
     {
       "Identity": "D:\\NET106\\Project\\VuTuongDuy_PH24890\\AppAPI\\wwwroot\\uploads\\CV Vũ Tường Duy - CV - PDP201 Bản 2-TopCV.vn.pdf",

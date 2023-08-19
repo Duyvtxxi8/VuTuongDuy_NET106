@@ -29,5 +29,15 @@ namespace AppAPI.Services
 		{
 			return await _dbContext.Colors.ToListAsync();
 		}
+
+		public async Task UpdateColor(Color color)
+		{
+			var objColor = await _dbContext.FindAsync<Color>(color.Id);
+			objColor.ColorName = color.ColorName;
+			objColor.Description = color.Description;
+			objColor.Status = color.Status;
+			_dbContext.Update(objColor);
+			await _dbContext.SaveChangesAsync();
+		}
 	}
 }

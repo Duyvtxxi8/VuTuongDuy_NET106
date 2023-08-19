@@ -36,5 +36,23 @@ namespace AppAPI.Controllers
             await colorService.DeleteColor(id);
             return Ok();
         }
+        [HttpPost("tinh-bmi")]
+        public string TinhBMI(double canNang, double chieuCao)
+        {
+            if (canNang <= 0 || chieuCao <=0)
+            {
+                return "Bạn phải nhập thông tin chính xác";
+            }
+            var BMI = canNang / (chieuCao * chieuCao);
+            return $"Chỉ số bmi của bạn là: {BMI}";
+        }
+        [HttpPut("edit-color/{id}")]
+        public async Task<IActionResult> UpdateColor(Guid id)
+        {
+            var result = await colorService.GetAllColors();
+            var obj = result.First(c => c.Id == id);
+            await colorService.UpdateColor(obj);
+            return Ok(obj);
+        }
     }
 }

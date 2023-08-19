@@ -1,28 +1,54 @@
 ﻿@page "/list"
 @inherits GetAllColorBase
+@{
+    var displayedCount = 1;
+}
 @if(Colors != null){
 	<h3>List Color</h3>
 	<table class="table">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Name color</th>
-				<th scope="col">Des</th>
-				<th scope="col">Status</th>
-				<th scope="col">#</th>
+				<th scope="col">STT</th>
+				<th scope="col">Tên màu sắc</th>
+				<th scope="col">Mô tả</th>
+				<th scope="col">Trạng thái</th>
+				<th scope="col"></th>
+                <th scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach(var color in Colors){
-				<tr>
-					<th scope="row">@count</th>
-					<th>@color.ColorName</th>
-					<th>@color.Description</th>
-					<th>@color.Status</th>
-					<th><a class="btn btn-danger" @onclick = "() => DeleteColor(color.Id)">Delete</a></th>
-				</tr>
-				count++;
-			}
+        @foreach(var color in Colors)
+        {
+            <tr>
+                <th scope="row">@displayedCount</th>
+                <th>@color.ColorName</th>
+                <th>@color.Description</th>
+                <th>@color.Status</th>
+                <th>
+                    @if (editingColorId == color.Id)
+                    {
+                        <button class="btn btn-success" @onclick="() => SaveChanges(color.Id)">Save</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" @onclick="() => StartEditing(color.Id)">Update</button>
+                    }
+                </th>
+                <th><button class="btn btn-danger" @onclick="() => DeleteColor(color.Id)">Delete</button></th>
+            </tr>
+            @if (editingColorId == color.Id)
+            {
+                <tr>
+                    <td></td>
+                    <td><input @bind="@color.ColorName" /></td>
+                    <td><input @bind="@color.Description" /></td>
+                    <td><input @bind="@color.Status" /></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+            displayedCount++;
+        }
 		</tbody>
 	</table>
 }
